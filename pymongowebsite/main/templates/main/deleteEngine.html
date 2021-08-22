@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+
+
+{% block title %}
+
+
+DELETE USER
+
+{% endblock %}
+
+
+{% block content %}
+
+	<form method="POST" class="form-group">
+
+		{% csrf_token %}
+
+		Username:<input type="text" name="username" min=1>
+
+		<button type="submit" class="btn btn-danger">DELETE USER</button>
+
+	</form>
+
+
+{% endblock %}

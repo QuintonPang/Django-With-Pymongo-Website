@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+
+{%block title%}
+
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="wrapper">
+
+<!-- The video -->                                                		<video style="width:100%;height:100%;" autoplay muted loop src="{%static 'main/bg.mp4'%}" type="video/mp4" class="bg-video" >
+
+
+
+	                 
+			
+		
+		</video>
+
+		
+
+<div class="screen container-fluid pt-5">
+
+
+		
+	<div class="float-left">
+
+
+
+		<h1 class="title text-light m-5"> Welcome Home,{{user.username}}!</h1>
+	
+		<p class="description text-light small m-5">This is the home page</p>
+	</div>
+
+
+<div class="button-panel d-inline-flex flex-column align-items-center float-right p-5  justify-content-between">
+
+
+	<button class="btn btn-light"><a href="/create" class="btn btn-link">CREATE</a></button>
+	<button class="btn btn-light"><a href="/updateEngine" class="btn btn-link">UPDATE</a></button>
+	<button class="btn btn-light"><a href="/searchAll" class="btn btn-link">SEARCH ALL</a></button>
+	<button class="btn btn-light"><a href="/searchEngine" class="btn btn-link">SEARCH A USER</a></button>
+	<button class="btn btn-light"><a href="/deleteEngine" class="btn btn-link">DELETE A USER</a></button>
+	<button class="btn btn-light"><a href="/deleteAll" class="btn btn-link">DELETE ALL</a></button>
+
+
+</div>
+
+</div>
+
+
+{% endblock %}

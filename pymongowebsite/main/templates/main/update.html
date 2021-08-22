@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+
+{% load main_tags %}
+
+
+{% block content %}
+
+	<form method="POST" class="form-group">
+
+		{% csrf_token %}
+
+		{% for user in ls%}
+
+		Id:<h1>{{user|mongo_id}}</h1>
+		Username:<input type="text" name="username" value="{{user.username}}">
+		Age:<input max=100 min=1  type="number" name="age" value="{{user.age}}">
+
+
+		{% if user.gender == "boy" %}
+
+		Gender:<select name="gender" >
+			<option value="boy" selected>Boy</option>
+			<option value="girl">Girl</option>
+	
+		{% else %}
+
+		Gender:<select name="gender" >
+			                               <option value="boy">Boy</option>                              <option value="girl" selected>Girl</option>
+
+
+		{% endif %}
+
+		Email: <input type="text" name="email" value="{{user.email}}">
+		<br>
+													
+
+		{% endfor %}
+
+		<button onClick="updated()" type="submit" class="btn btn-success">UPDATE </button>
+
+		
+
+	</form>
+
+			<script>
+
+				const updated=()=>{
+
+				alert("Updated successfully!");
+
+				};
+			</script>
+
+
+	{% endblock%}
+
+

@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+
+{% load main_tags %}
+
+
+{%block title%}
+
+
+
+{%endblock%}
+
+
+{% block content %}
+
+
+	{% for user in ls %}
+
+	Id:<h1>{{user|mongo_id}}</h1>
+	Username:<h1>{{user.username}}</h1>
+	Age:<h1>{{user.age}}</h1>
+	Gender:<h1>{{user.gender}}</h1>
+	Email:<h1>{{user.email}}</h1>
+
+	{% endfor %}
+
+
+
+{% endblock %}

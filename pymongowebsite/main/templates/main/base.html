@@ -1,0 +1,227 @@
+{% load main_tags %}
+{% load static %}
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+		<!--<link rel="stylesheet" href="{%static 'main/bootstrap4.min.css'%}">-->
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script> 
+	
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	</head>
+	<body>
+
+	
+		<style>
+
+
+			body{
+
+				color:white;
+
+				background-color:black;
+
+
+			}
+
+		
+
+			@keyframes panel-change{
+
+				from{ background-color:white;transform:translateY(-80px)}
+				to { background-color:black;transform:translate(0px)}
+
+			}
+
+
+			@keyframes word-change{
+
+				
+				0%{transform:translateX(-150px)}
+				50%{transform:translateX(10px)}
+				100%{transform:translateX(0px)}
+
+			}
+
+			@keyframes word-show{
+
+				0%{opacity:0}
+				80%{opacity:0.5}
+				90%{opacity:0.75}
+				100%{opacity:1}
+
+
+			}
+
+			.form-group{
+
+
+				margin:100px;
+				color:white;
+
+
+			}
+
+			
+			.screen{
+					
+				
+				width:70%;
+				top:-1200px;			
+				position:relative;	
+
+			}
+
+			.title{
+
+				animation-name:word-change;
+				animation-duration:2s;
+				font-size:1rem;
+				
+
+			}
+
+			.description{
+				
+				animation-name:word-show;
+				animation-duration:2s;
+				
+
+
+			}
+
+			.button-panel{
+
+
+				width:50%;
+				height:25%;
+				border-radius:5px;
+				animation-name: panel-change;
+				animation-duration:2s;
+				background-color: black;
+
+			}
+
+			form button{
+
+				margin-left:50%;
+
+			}
+
+			/* Style the video: 100% width and height to cover the entire window */
+			
+			.wrapper {
+				
+				  position: fixed;
+				  right: 0;
+				  bottom: 0;
+				  width: 100% !important;
+				  height:100% !important ;
+			}
+
+			.home-icon{
+
+
+				color:white;
+				margin:50px;
+				position:fixed;
+				left:0;
+				top:0;
+				z-index:1;
+			
+				
+			}
+
+			.logout-icon{
+
+				position:fixed;
+				right:0;
+				top:0;
+				margin:50px;
+				color:red;
+				z-index:1;
+
+
+
+			}
+
+			.icons{
+				animation-name:word-show;
+				animation-duration:1s;
+
+			}
+
+			.blocked{
+
+				font-size:3rem;
+					
+				height:100%;
+
+				padding-top:50%;
+
+
+				text-align:center;
+					
+				white-space:nowrap;
+
+			}
+
+
+
+		</style>
+	
+
+
+	</head>
+
+	<body>
+		<div class="icons">
+			<a href="/"><span class="home-icon fas fa-home fa-3x"></span></a>
+			<a href="/logout"><span class="logout-icon far fa-window-close fa-3x"></span></a>
+		</div>
+
+	{% if user.is_authenticated %}
+	<div>
+
+
+	{%block title%}
+
+	{% endblock %}
+	</div>
+
+	<div>
+	{%block content%}
+
+	{%endblock%}
+
+
+	</div>
+
+	{% else%}
+		<div class="blocked text-danger">
+
+		{% block blocked%}
+
+		Please login <a href="/login">here</a> first !
+		{% endblock %}
+
+
+		</div>
+	{% endif %}
+
+	
+	</body>
+
+
+	
+</html>

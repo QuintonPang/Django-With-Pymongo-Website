@@ -1,0 +1,19 @@
+
+{% load crispy_forms_tags %}
+
+<html>
+	<h1> LOGIN PAGE </h1>
+
+
+<form method="POST" class="form-group">
+
+	{% csrf_token %}
+	{{form|crispy}}
+
+
+	<button type"submit" class="btn btn-success m-5">LOGIN</button>
+
+	
+	</form>
+
+</html>
